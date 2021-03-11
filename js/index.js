@@ -87,10 +87,14 @@ servicesParagraph[2].textContent = siteContent["main-content"]["services-content
 //product section
 const productTitle = document.querySelectorAll(".main-content h4")
 productTitle[3].textContent = siteContent["main-content"]["product-h4"]
+const productParagraph = document.querySelectorAll(".main-content p")
+productParagraph[3].textContent = siteContent["main-content"]["product-content"]
 
 //vision section
 const visionTitle = document.querySelectorAll(".main-content h4")
 visionTitle[4].textContent = siteContent["main-content"]["vision-h4"]
+const visionParagraph = document.querySelectorAll(".main-content p")
+visionParagraph[4].textContent = siteContent["main-content"]["vision-content"]
 
 //contact section
 //contact-h4
@@ -98,13 +102,33 @@ const contactHFour = document.querySelectorAll(".contact h4")
 contactHFour[0].textContent = siteContent["contact"]["contact-h4"]
 
 //address
-const siteAddress = document.querySelectorAll(".contact p")
-siteAddress[1].textContent = siteContent["contact"]["address"]
+const siteAddress = document.querySelector(".contact p:nth-child(2)")
+siteAddress.textContent = siteContent["contact"]["address"]
 
 //phone
-const sitePhone = document.querySelectorAll(".contact p")
-siteAddress[2].textContent = siteContent["contact"]["phone"]
+const sitePhone = document.querySelector(".contact p:nth-child(3)")
+sitePhone.textContent = siteContent["contact"]["phone"]
 
 //email
-const siteEmail = document.querySelectorAll(".contact p")
-siteEmail[3].textContent = siteContent["contact"]["email"]
+const siteEmail = document.querySelector(".contact p:nth-child(4)")
+siteEmail.textContent = siteContent["contact"]["email"]
+
+//footer
+const siteFooter = document.querySelectorAll("footer p")
+siteFooter[0].textContent = siteContent["footer"]["copyright"]
+
+//color change section
+topNav.forEach(element => element.style.color = 'green')
+
+
+const homeLink = document.createElement('a')
+homeLink.href = '#'
+homeLink.textContent = "Home"
+document.querySelector('nav').prepend(homeLink)
+homeLink.style.color = 'green'
+
+const blogLink = document.createElement('a')
+blogLink.href = '#'
+blogLink.textContent = "Blog"
+document.querySelector('nav').append(blogLink)
+blogLink.style.color = 'green'
