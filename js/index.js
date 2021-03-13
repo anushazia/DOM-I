@@ -41,14 +41,18 @@ const siteContent = {
 let logo = document.getElementById("logo-img");
 logo.setAttribute('src', siteContent["nav"]["img-src"])
 
+//an effecient way to go through to change the element using .forEach()
 const topNav = document.querySelectorAll('nav a')
-// anchorTags.forEach(element => console.log(element.textContent))
-topNav[0].textContent = "Services"
-topNav[1].textContent = "Product"
-topNav[2].textContent = "Vision"
-topNav[3].textContent = "Features"
-topNav[4].textContent = "About"
-topNav[5].textContent = "Contact"
+topNav.forEach((element, index) => element.textContent = siteContent.nav[`nav-item-${index + 1}`])//for each can take 2 funcitons, an element and and index so you can go down to SiteContent nav and then loop over the nav item at an index and add 1 more each time.
+
+//long way to do this is below!
+
+// topNav[0].textContent = "Services"//not sure why .forEach is not working for the nav bar
+// topNav[1].textContent = "Product"
+// topNav[2].textContent = "Vision"
+// topNav[3].textContent = "Features"
+// topNav[4].textContent = "About"
+// topNav[5].textContent = "Contact"
 
 //cta section 
 //image
@@ -120,13 +124,14 @@ siteFooter[0].textContent = siteContent["footer"]["copyright"]
 //color change section
 topNav.forEach(element => element.style.color = 'green')
 
-
+//prepend Home Section
 const homeLink = document.createElement('a')
 homeLink.href = '#'
 homeLink.textContent = "Home"
 document.querySelector('nav').prepend(homeLink)
 homeLink.style.color = 'green'
 
+//append Blog Section
 const blogLink = document.createElement('a')
 blogLink.href = '#'
 blogLink.textContent = "Blog"
